@@ -122,7 +122,7 @@
                     Get Weather
             </button>
             <div id="weather-info"
-                class="animate_animated animate_fadeIn">
+                class="animate__animated animate__fadeIn">
                 <h3 id="city-name"></h3>
                 <p id="date"></p>
                 <img id="weather-icon" src="" alt="Weather Icon">
@@ -144,7 +144,7 @@ $(document).ready(function () {
 
 async function weatherFn(cName) {
     const temp =
-        ${url}?q=${cName}&appid=${apiKey}&units=metric;
+        `${url}?q=${cName}&appid=${apiKey}&units=metric`;
     try {
         const res = await fetch(temp);
         const data = await res.json();
@@ -163,14 +163,14 @@ function weatherShowFn(data) {
     $('#date').text(moment().
         format('MMMM Do YYYY, h:mm:ss a'));
     $('#temperature').
-        html(${data.main.temp}°C);
+        html(`${data.main.temp}°C`);
     $('#description').
         text(data.weather[0].description);
     $('#wind-speed').
-        html(Wind Speed: ${data.wind.speed} m/s);
+        html(`Wind Speed: ${data.wind.speed} m/s`);
     $('#weather-icon').
         attr('src',
-            ...);
+            `...`);
     $('#weather-info').fadeIn();
 }
 
